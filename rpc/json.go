@@ -121,8 +121,8 @@ func isBatch(msg json.RawMessage) bool {
 // form or an error when the incoming message could not be read/parsed.
 func (c *jsonCodec) ReadRequestHeaders() ([]rpcRequest, bool, Error) {
 	glog.V(logger.Error).Infof("ReadRequestHeaders: %+v\n", c)
-	c.decMu.Lock()
-	defer c.decMu.Unlock()
+	// c.decMu.Lock()
+	// defer c.decMu.Unlock()
 
 	var incomingMsg json.RawMessage
 	if err := c.d.Decode(&incomingMsg); err != nil {
