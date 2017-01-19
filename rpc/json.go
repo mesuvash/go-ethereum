@@ -120,6 +120,7 @@ func isBatch(msg json.RawMessage) bool {
 // return a collection of requests, an indication if these requests are in batch
 // form or an error when the incoming message could not be read/parsed.
 func (c *jsonCodec) ReadRequestHeaders() ([]rpcRequest, bool, Error) {
+	glog.V(logger.Error).Infof("ReadRequestHeaders: %+v\n", c)
 	c.decMu.Lock()
 	defer c.decMu.Unlock()
 
