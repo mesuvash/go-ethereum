@@ -156,6 +156,7 @@ func checkReqId(reqId json.RawMessage) error {
 // the request could not be parsed.
 func parseRequest(incomingMsg json.RawMessage) ([]rpcRequest, bool, Error) {
 	var in jsonRequest
+	glog.V(logger.Error).Infof("parseRequest: %x\n", incomingMsg)
 	if err := json.Unmarshal(incomingMsg, &in); err != nil {
 		return nil, false, &invalidMessageError{err.Error()}
 	}
