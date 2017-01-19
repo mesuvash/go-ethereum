@@ -129,7 +129,7 @@ func (c *jsonCodec) ReadRequestHeaders() ([]rpcRequest, bool, Error) {
 		glog.V(logger.Error).Infof("ReadRequestHeaders error: %+v\n", incomingMsg)
 		return nil, false, &invalidRequestError{err.Error()}
 	}
-	glog.V(logger.Error).Infof("ReadRequestHeaders error: %+v\n", incomingMsg)
+	glog.V(logger.Error).Infof("ReadRequestHeaders: %+v\n", incomingMsg)
 
 	if isBatch(incomingMsg) {
 		return parseBatchRequest(incomingMsg)
